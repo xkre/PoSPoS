@@ -1,0 +1,20 @@
+<h1>This is Waiter</h1>
+<ul>
+  <li *ngFor="let menu of menus">
+    {{menu.name}} // {{menu.id}}
+    <input type="button" value="Add" (click)="addToOrder(menu)"/> 
+    <!--<input type="button" value="Delete" (click)="deleteMenu(menu)"/>-->
+  </li>
+</ul>
+
+
+<input [(ngModel)]="name" placeholder="Menu">
+<input [(ngModel)]='price' placeholder="Price">
+<input type="button" value="Add to Menu" (click)="addMenu()"/>
+
+{{name}}
+
+<div *ngIf="currentOrder">
+  <app-order [order]="currentOrder" [status]="status"></app-order>
+  <input type="button" value="Submit Order" (click)="submit()"/> 
+</div>
